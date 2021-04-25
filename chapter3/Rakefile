@@ -1,0 +1,9 @@
+task default: 'time:show'
+
+namespace :time do
+  desc "Show current date & time"
+  task :show do
+    puts Time::now
+  end
+
+end
