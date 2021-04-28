@@ -1,18 +1,20 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
 
 class User
-
-  attr_reader :first_name, :last_name
-
   def set_first_name(new_name)
     @first_name = new_name
   end
 
-
+  def first_name
+    @first_name
+  end
 
   def set_last_name(new_name)
     @last_name = new_name
+  end
+
+  def last_name
+    @last_name
   end
 end
 
