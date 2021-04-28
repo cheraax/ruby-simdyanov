@@ -18,8 +18,8 @@ class Point
     @y
   end
 
-  def distance (other_point)
-    Math.sqrt( (other_point.x - @x)**2 + (other_point.y - @y)**2)
+  def distance(other_point)
+    Math.sqrt((other_point.x - @x)**2 + (other_point.y - @y)**2)
   end
 end
 
