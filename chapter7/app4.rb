@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-puts "PI = %.2f" % Math::PI
+puts format('PI = %.2f', Math::PI)
