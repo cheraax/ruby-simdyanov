@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'state_machine'
 
 class Substance
-
-  state_machine :state, :initial => [:gaz, :solid, :liquid].sample do
+  state_machine :state, initial: %i[gaz solid liquid].sample do
     before_transition do |substance|
       print "Substance was '#{substance.state}'"
     end
@@ -14,27 +14,27 @@ class Substance
     end
 
     event :melt do
-      transition :solid => :liquid
+      transition solid: :liquid
     end
 
     event :freez do
-      transition :liquid => :solid
+      transition liquid: :solid
     end
 
     event :boil do
-      transition :liquid => :gaz
+      transition liquid: :gaz
     end
 
     event :condense do
-      transition :gaz => :liquid
+      transition gaz: :liquid
     end
 
     event :sublime do
-      transition :solid => :gaz
+      transition solid: :gaz
     end
 
     event :deposit do
-      transition :gaz => :solid
+      transition gaz: :solid
     end
 
     state :solid do
@@ -45,13 +45,7 @@ class Substance
 
     state :gaz do
     end
-
   end
-
-  def initialize
-    super() # NOTE: This *must* be called, otherwise states won't get initialized
-  end
-
 end
 
 s = Substance.new

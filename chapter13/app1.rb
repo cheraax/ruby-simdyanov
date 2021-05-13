@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 class Building
   attr_accessor :floors, :color, :material, :has_parking, :year, :address
+
   def to_s
     "Building: #{@address}
     floors: #{@floors}

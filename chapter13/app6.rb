@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 class Integer
   def minutes
     self * 60
   end
+
   def hours
     self * 60.minutes
   end
+
   def days
     self * 24.hours
   end

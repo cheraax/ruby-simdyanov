@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 class Time
   def self.hello
-    case self.now.hour
+    case now.hour
     when 0..4
       'Good night'
     when 5..11

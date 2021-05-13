@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 class Substance
   @@states = %i[solid liquid gaz]
@@ -8,10 +9,11 @@ class Substance
   end
 
   def status
-     "Substance is #{@state}"
+    "Substance is #{@state}"
   end
 
-  def melt # из твердого в жидкое
+  # из твердого в жидкое
+  def melt
     if @state == :solid
       @state = :liquid
     else
@@ -19,7 +21,8 @@ class Substance
     end
   end
 
-  def freez # из жидкого в твердое
+  # из жидкого в твердое
+  def freez
     if @state == :liquid
       @state = :solid
     else
@@ -27,7 +30,8 @@ class Substance
     end
   end
 
-  def boil # из жидкого в газообразное
+  # из жидкого в газообразное
+  def boil
     if @state == :liquid
       @state = :gaz
     else
@@ -35,7 +39,8 @@ class Substance
     end
   end
 
-  def condense # из газообразного в жидкость
+  # из газообразного в жидкость
+  def condense
     if @state == :gaz
       @state = :liquid
     else
@@ -43,7 +48,8 @@ class Substance
     end
   end
 
-  def sublime # из твердого в газообразное
+  # из твердого в газообразное
+  def sublime
     if @state == :solid
       @state = :gaz
     else
@@ -51,7 +57,8 @@ class Substance
     end
   end
 
-  def deposit # из газообразного в твердое
+  # из газообразного в твердое
+  def deposit
     if @state == :gaz
       @state = :solid
     else
@@ -59,14 +66,13 @@ class Substance
     end
   end
 
-  def error meth
+  def error(meth)
     "Substance is #{@state} and cant't be #{meth}"
   end
 
-  def method_missing(meth, *args, &block)
-      error meth
+  def method_missing(meth, *_args)
+    error meth
   end
-
 end
 
 s = Substance.new
@@ -80,4 +86,4 @@ p s.deposit
 
 p s.status
 
-p s.slice #undefined method
+p s.slice # undefined method
