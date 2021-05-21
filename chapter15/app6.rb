@@ -5,7 +5,7 @@ eng = %w[red orange yellow green gray blue violet]
 
 rus = %w[красный оранжевый желтый зеленый серый синий фиолетовый]
 
-dic_1 = eng.zip(rus).map { |arr| [arr.first.to_sym, arr.last] }.to_h
+dic_1 = eng.map(&:to_sym).zip(rus).to_h
 dic_2 = Hash[[eng.map(&:to_sym), rus].transpose]
 
 pp dic_1
